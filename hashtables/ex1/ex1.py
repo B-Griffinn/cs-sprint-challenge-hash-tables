@@ -1,27 +1,20 @@
-# create a cache
-cache = {}
 
 
 def get_indices_of_item_weights(weights, length, limit):
+    cache = {}
 
-    # loop through our weights arr but stop at length
     for i in range(0, len(weights)):
-        # store each weight as the key
-        # print(weights[i])
-        if weights[i] not in cache:
-            # store each weight index as the value
-            cache[i] = weights[i]
-            # print("CACHE", cache[i])
 
-    # loop thru cache
-    # for j in range(0, len(cache)-1):
-        # print("JJJ", cache[j])
-        # if cache[j]
-    # if key + key == limit
-    # if cache[j] +
-    # return (indexsml, indexbig)
-    # or return none
-    print(cache)
+        cur = weights[i]
+
+        if cur in cache:
+
+            needed_weight = cache[cur]
+
+            return (i, needed_weight)
+
+        cache[limit - cur] = i
+    return None
 
 
 l1 = [4, 6, 10, 15, 16]
